@@ -1,0 +1,145 @@
+
+<html lang="en">
+
+<head>
+    <title>Predict</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+.bar
+{
+margin: 0px;
+height: 75px;
+padding:20px;
+background-color:white;
+opacity:0.5;
+color:black;
+font-family:'Roboto',sans-serif;
+font-style: italic;
+border-radius:20px;
+font-size:25px;
+}
+a
+{
+color:grey;
+float:right;
+text-decoration:none;
+font-style:normal;
+padding-right:20px;
+}
+a:hover{
+background-color:grey;
+color:white;
+border-radius:15px;0
+font-size:30px;
+padding-left:10px;
+}
+    
+    
+body
+{
+    background-image: url("https://1.bp.blogspot.com/-jq_EAt7bqRI/YOxP-beeduI/AAAAAAABGlk/U-t2Tyy2m50o0bMJG9-kp3j3BtuG3CrEACLcBGAsYHQ/w640-h308/Untitled%2Bdesign%2B%25287%2529.png");
+    background-size: cover;
+}
+p
+{
+color:white;
+font-style:italic;
+font-size:24px;
+}
+
+input[type=text], select {
+  width: 30%;
+  padding: 8px 10px;
+  margin: 3px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 30%;
+  background-color: #D89974 ;
+  color: white;
+  padding: 8px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: white;
+  color: #96532C
+}
+
+</style> 
+</head>
+
+<body>
+
+<div class="bar">
+    <a href="/pred">Predict</a>
+<a href="/home">Home</a>
+<br>
+</div>
+    
+    <div class="container">
+       <center> <div id="content" style="margin-top:1em">
+       <h2 style="color:white;font-family:Times New Roman;font-size:60"><center>Food Demand Forecasting</center></h2><br>
+    		<form action="{{ url_for('predict') }}" method="POST">
+
+<select id="homepage_featured" name="homepage_featured">
+ <option value="">Homepage_featured</option>
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+   
+  </select><br>
+<select id="emailer_for_promotion" name="emailer_for_promotion">
+ <option value="">Emailer_for_promotion</option>
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+   
+  </select><br>
+
+
+<input class="form-input" type="text" name="op_area" placeholder="Enter the op_area(2-7)"><br>
+<select id="cuisine" name="cuisine">
+<option value="">Cuisine</option>
+    <option value="0">Continental</option>
+    <option value="1">Indian</option> 
+    <option value="2">Italian</option>
+    <option value="3">Thai</option>
+
+  </select><br>
+  <input class="form-input" type="text" name="city_code" placeholder="Enter city_code"><br>
+<input class="form-input" type="text" name="region_code" placeholder="Enter region_code"><br>
+<select id="category" name="category">
+<option value="">Category</option>
+    <option value="0">Beverages</option>
+    <option value="1">Biryani</option>
+    <option value="2">Desert</option>
+    <option value="3">Extras</option>
+    <option value="4">Fish</option>
+    <option value="5">Other Snacks</option>
+    <option value="6">Pasta</option>
+    <option value="7">Pizza</option>
+    <option value="8">Rice Bowl</option>
+    <option value="9">Salad</option>
+    <option value="10">Sandwich</option>
+    <option value="11">Seafood</option>
+    <option value="12">Soup</option>
+    <option value="13">Starters</option>
+  </select><br>
+
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	     </form>
+       
+    
+	
+	 <h1 class="predict" style="color:white;font-family:Times New Roman;font-size:30">Number of orders: {{ prediction_text }}</h1>
+       </div></center>
+    </div>
+</body>
+
